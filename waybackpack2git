@@ -29,6 +29,15 @@ then
 fi
 dstdir="$1"
 shift
+for dir in "$@"
+do
+    base="$(basename "$dir")"
+    if ! expr "$base" : '^[0-9]\{14\}$' > /dev/null
+    then
+        printf "%s: %s doesn't look like a waybackpack directory\n" "$0" "$dir"
+        exit 1
+    fi
+done
 git init "$dstdir"
 for dir in "$@"
 do
