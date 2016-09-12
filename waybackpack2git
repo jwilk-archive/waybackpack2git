@@ -38,6 +38,7 @@ do
         exit 1
     fi
 done
+mkdir "$dstdir"
 git init "$dstdir"
 for dir in "$@"
 do
