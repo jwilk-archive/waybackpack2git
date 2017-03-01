@@ -47,7 +47,7 @@ do
     dir="$(readlink -f "$dir")"
     git -C "$dstdir" config --replace-all core.worktree "$dir"
     git -C "$dstdir" add -A .
-    git -C "$dstdir" commit --quiet -m '' --allow-empty-message --date "$date"
+    git -C "$dstdir" commit --quiet -m '' --allow-empty-message --allow-empty --date "$date"
 done
 git -C "$dstdir" config --unset-all core.worktree
 git -C "$dstdir" reset --hard master
