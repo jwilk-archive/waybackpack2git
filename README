@@ -28,4 +28,4 @@
     example.org/index.html | 5 +++--
     1 file changed, 3 insertions(+), 2 deletions(-)
 
-.. vim:ts=3 sts=3 sw=3 et
+.. vim:ft=rst ts=3 sts=3 sw=3 et
