@@ -1,3 +1,11 @@
+Overview
+========
+
+**waybackpack2git** imports waybackpack_ downloads into a git repository:
+
+.. _waybackpack:
+   https://github.com/jsvine/waybackpack
+
 .. code:: console
 
    $ waybackpack --quiet --to-date 2002 --dir example.org-wayback http://example.org
