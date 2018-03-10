@@ -36,4 +36,9 @@ Overview
     example.org/index.html | 5 +++--
     1 file changed, 3 insertions(+), 2 deletions(-)
 
+Prerequisites
+=============
+
+* git (v1.8.5 or later)
+
 .. vim:ft=rst ts=3 sts=3 sw=3 et
