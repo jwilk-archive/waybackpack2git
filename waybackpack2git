@@ -24,7 +24,7 @@ set -e -u
 
 if [ $# -lt 2 ]
 then
-    printf 'Usage: %s DSTDIR SRCDIR...\n' "$0" >&2
+    printf 'Usage: %s DSTDIR SRCDIR...\n' "${0##*/}" >&2
     exit 1
 fi
 dstdir="$1"
