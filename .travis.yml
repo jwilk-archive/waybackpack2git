@@ -1,11 +1,16 @@
 dist: xenial
 language: generic
+addons:
+  apt:
+    packages:
+    - tor
+    - torsocks
 install:
 - pip install --user waybackpack
 - pip install --user pygments restructuredtext-lint
 script:
 - shellcheck waybackpack2git
-- waybackpack --quiet --to-date 2002 --dir example.org-wayback http://example.org
+- torsocks waybackpack --quiet --to-date 2002 --dir example.org-wayback http://example.org
 - ./waybackpack2git example.org-git example.org-wayback/2002*
 - git -C example.org-git/ log -3 --stat
 - restructuredtext-lint --encoding=UTF-8 README
