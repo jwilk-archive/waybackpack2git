@@ -10,9 +10,7 @@ install:
 - pip install --user pygments restructuredtext-lint
 script:
 - shellcheck waybackpack2git
-- torsocks waybackpack --quiet --to-date 2002 --dir example.org-wayback http://example.org
-- ./waybackpack2git example.org-git example.org-wayback/2002*
-- git -C example.org-git/ log -3 --stat
+- WAYBACKPACK2GIT_ONLINE_TESTS=1 torsocks prove -v
 - restructuredtext-lint --encoding=UTF-8 README
 
 # vim:ts=2 sts=2 sw=2 et
