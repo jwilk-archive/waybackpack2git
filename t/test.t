@@ -21,7 +21,6 @@ sed -e 's/^/# / ' <<EOF
 $out
 EOF
 echo 'ok 1'
-cd /
 rm -rf "$tmpdir"
 
 # vim:ts=4 sts=4 sw=4 et ft=sh
