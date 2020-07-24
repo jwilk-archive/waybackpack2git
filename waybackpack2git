@@ -45,7 +45,7 @@ for dir in "$@"
 do
     base="$(basename "$dir")"
     date=$(printf '%s' "$base" | sed -n -E -e '/^(....)(..)(..)(..)(..)(..)$/ { s//\1-\2-\3 \4:\5:\6 UTC/; p; q }')
-    dir="$(readlink -f "$dir")"
+    dir=$(cd -P -- "$dir" && pwd)
     git -C "$dstdir" config --replace-all core.worktree "$dir"
     git -C "$dstdir" add -A .
     git -C "$dstdir" commit --quiet -m '' --allow-empty-message --allow-empty --date "$date"
