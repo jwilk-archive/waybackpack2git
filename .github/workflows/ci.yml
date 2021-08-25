@@ -1,0 +1,31 @@
+name: CI
+on:
+- push
+- pull_request
+jobs:
+  main:
+    strategy:
+      matrix:
+        os:
+        - ubuntu-18.04
+        - ubuntu-20.04
+    runs-on: ${{matrix.os}}
+    steps:
+    - uses: actions/checkout@v2
+    - run:
+        pip install waybackpack
+    - name: set up Git user identity
+      run: |
+        git config --global user.email 'nobody@example.org'
+        git config --global user.name 'CI'
+    - name: run tests
+      run:
+        WAYBACKPACK2GIT_ONLINE_TESTS=1 prove -v
+    - run:
+        shellcheck waybackpack2git
+    - name: check README syntax
+      run: |
+        pip install pygments restructuredtext-lint
+        rst-lint --level=info --encoding=UTF-8 README
+
+# vim:ts=2 sts=2 sw=2 et
