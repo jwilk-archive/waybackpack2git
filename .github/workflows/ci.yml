@@ -12,7 +12,8 @@ jobs:
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v2
-    - run:
+    - name: pip install waybackpack
+      run:
         pip install waybackpack
     - name: set up Git user identity
       run: |
@@ -21,7 +22,8 @@ jobs:
     - name: run tests
       run:
         WAYBACKPACK2GIT_ONLINE_TESTS=1 prove -v
-    - run:
+    - name: run shellcheck
+      run:
         shellcheck waybackpack2git
     - name: check README syntax
       run: |
