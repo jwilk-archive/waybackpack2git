@@ -8,7 +8,7 @@ Overview
 
 .. code:: console
 
-   $ waybackpack --quiet --to-date 2002 --dir example.org-wayback http://example.org
+   $ waybackpack --quiet --to-date 2002 --dir example.org-wayback http://example.org/
 
    $ waybackpack2git example.org-git example.org-wayback/2002*
    Initialized empty Git repository in /home/jwilk/example.org-git/.git/

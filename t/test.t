@@ -14,7 +14,7 @@ then
     exit 1
 fi
 tmpdir=$(mktemp -d -t waybackpack2git.XXXXXX)
-waybackpack --quiet --to-date 2002 --dir "$tmpdir"/example.org-wayback http://example.org
+waybackpack --quiet --to-date 2002 --dir "$tmpdir"/example.org-wayback http://example.org/
 "$prog" "$tmpdir"/example.org-git "$tmpdir"/example.org-wayback/2002*
 out=$(git -C "$tmpdir"/example.org-git/ log -3 --stat)
 sed -e 's/^/# / ' <<EOF
